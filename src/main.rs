@@ -59,6 +59,21 @@ fn check_if_prime(num: i32) -> bool {
     return is_prime;
 }
 
+fn get_no_of(number: i32){
+    let mut cur_num: i32 = 0;
+    let mut cur_prime_num: i32 = 0;
+    loop {
+        if cur_num == number {
+            break;
+        }
+        if check_if_prime(cur_prime_num){
+            println!("{}", cur_prime_num);
+            cur_num += 1;
+        }
+        cur_prime_num += 1;
+    }
+}
+
 fn get_till_a_number(number: i32){
     for i in 1..number {
         if check_if_prime(i) {
@@ -75,8 +90,18 @@ fn main() {
     println!("2. Print number of prime numbers");
     let valid_ans: i32 = get_valid_answer();
     if valid_ans == 1 {
-        print!("Give a number");
+        println!("----------------------------------");
+        println!("1. Print prime numbers till a number");
+        println!("Give a number: ");
         let till_number: i32 = to_int(input());
+        println!("----------------------------------");
         get_till_a_number(till_number);
+    }else if valid_ans == 2 {
+        println!("----------------------------------");
+        println!("2. Print number of prime numbers");
+        println!("Give a number: ");
+        let till_number: i32 = to_int(input());
+        println!("----------------------------------");
+        get_no_of(till_number);
     }
 }
